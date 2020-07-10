@@ -22,11 +22,6 @@ public class ChangeKey : MonoBehaviour
         jump = KeyCode.Space;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void RandomKey()
     {
