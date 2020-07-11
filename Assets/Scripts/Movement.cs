@@ -17,11 +17,11 @@ public class Movement : MonoBehaviour
 
     private void Start()
     {
-        controller = gameObject.AddComponent<CharacterController>();
+        controller = gameObject.GetComponent<CharacterController>();
         inputManager = GameObject.Find("InputManager").GetComponent<ChangeKey>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         KeysToAxis();
 
