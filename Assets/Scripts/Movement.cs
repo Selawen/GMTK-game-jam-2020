@@ -15,6 +15,11 @@ public class Movement : MonoBehaviour
     private float horizontalAxis;
     private float verticalAxis;
 
+    public int horizontal;
+    public int vertical;
+    public int jump;
+    public int pause;
+
     private void Start()
     {
         controller = gameObject.GetComponent<CharacterController>();
@@ -31,7 +36,7 @@ public class Movement : MonoBehaviour
             playerVelocity.y = 0f;
         }
 
-        Vector3 move = new Vector3(horizontalAxis, 0, verticalAxis);
+        Vector3 move = new Vector3((horizontalAxis + horizontal), 0, (verticalAxis + vertical));
         controller.Move(move * Time.deltaTime * playerSpeed);
 
         if (move != Vector3.zero)
@@ -40,9 +45,9 @@ public class Movement : MonoBehaviour
         }
 
         // jumps when jump button is pressed
-        if (Input.GetKeyDown(inputManager.jump) && groundedPlayer)
+        if (Input.GetKey(inputManager.jump) && groundedPlayer)
         {
-            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+            playerVelocity.y += Mathf.Sqrt((jumpHeight+jump) * -3.0f * gravityValue);
         }
 
         playerVelocity.y += gravityValue * Time.deltaTime;
@@ -76,5 +81,30 @@ public class Movement : MonoBehaviour
         {
             horizontalAxis -= 1;
         }
+    }
+
+    public void ShotModifier(int shotControl)
+    {
+        vertical = 0;
+        horizontal = 0;
+        jump = 0;
+
+        switch (shotControl)
+        {
+            case 0:
+                vertical += 1;
+                break;
+            case 1:
+                vertical -= 1;
+                break;
+            case 2:
+                horizontal += 1;
+                break;
+            case 3:
+                horizontal -= 1;
+                break;
+            case 4:
+                jump += 2;
+                break; }
     }
 }

@@ -81,9 +81,10 @@ public class ChangeKey : MonoBehaviour
     }
 
 
-    public void RandomKey()
+    public int RandomKey()
     {
-        switch ((int)Random.Range(0, 5.9f))
+        int keyToChange = (int)Random.Range(0, 5.9f);
+        switch (keyToChange)
         {
             case (0):
                 do {
@@ -92,7 +93,7 @@ public class ChangeKey : MonoBehaviour
                 while (usableKeycodes[randomKey] == up);
                 up = usableKeycodes[randomKey];
                 break;
-            case (1):
+                case (1):
                 do
                 {
                     randomKey = Random.Range(0, usableKeycodes.Length);
@@ -135,8 +136,7 @@ public class ChangeKey : MonoBehaviour
         }
 
         UIManager.UpdateKeyText();
-
-
+        return keyToChange;
         //Debug.Log(usableKeycodes[randomKey]);
     }
 }
