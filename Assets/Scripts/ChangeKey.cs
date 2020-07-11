@@ -82,7 +82,7 @@ private int randomKey;
 
     public void RandomKey()
     {
-        switch (Random.Range(0, 5))
+        switch ((int)Random.Range(0, 5.9f))
         {
             case (0):
                 do {
