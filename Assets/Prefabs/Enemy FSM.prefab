@@ -147,3 +147,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51bc45231d52aff42a68c114d1b22ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1047634778667303351, guid: 63cda867b0a79044a8b3d657c550f706, type: 3}
+  radius: 6
+  currenState: 0

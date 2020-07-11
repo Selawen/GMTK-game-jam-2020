@@ -38,7 +38,7 @@ public class EnemyPatrol : StateMachineBehaviour
         meshAgent.SetDestination(roamPosition);
 
         timeToSearchNewSpot -= 10 * Time.deltaTime;
-        Debug.Log("nani? " + timeToSearchNewSpot);
+        //Debug.Log("nani? " + timeToSearchNewSpot);
 
 
         if (timeToSearchNewSpot <= 0)

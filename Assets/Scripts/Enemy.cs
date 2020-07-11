@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
 
     private Animator animator;
 
+    public int changedControl;
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
@@ -24,32 +26,32 @@ public class Enemy : MonoBehaviour
 
     }
 
-     public State currenState;
+     public State currentState;
 
     private void Start()
     {
         animator = gameObject.GetComponent<Animator>();
-        currenState = State.Roaming;
+        currentState = State.Roaming;
 
     }
 
     private void FixedUpdate()
     {
 
-        if (Vector3.Distance(gameObject.transform.position, player.transform.position) <= radius)
+        if (Vector3.Distance(gameObject.transform.position, player.transform.position) <= radius && currentState!= State.Shooting)
         {
             Debug.Log("AHA!!!");
-            currenState = State.ChasingTarget;
+            currentState = State.ChasingTarget;
         }
-        else
+        else if(currentState != State.Shooting)
         {
             Debug.Log("Nvm");
-            currenState = State.Roaming;
+            currentState = State.Roaming;
         }
         Debug.Log("AHA!!!");
 
 
-        switch (currenState)
+        switch (currentState)
         {
             case State.Idle:
                 animator.SetBool("isChasing", false);
@@ -78,6 +80,12 @@ public class Enemy : MonoBehaviour
             default:
                 break;
         }
+
+    }
+
+    public void GotToShooting()
+    {
+        currentState = State.Shooting;
     }
 
 }
