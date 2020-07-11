@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/Scenes/Swan(Mine).unity
+  isLoaded: 1
+  isActive: 1
