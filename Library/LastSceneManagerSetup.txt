@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/BasicMainMenu/Scenes/MainMenu.unity
+- path: Assets/Scenes/Swan(Mine).unity
   isLoaded: 1
   isActive: 1
