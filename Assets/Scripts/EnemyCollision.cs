@@ -17,6 +17,7 @@ public class EnemyCollision : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             inputManager.RandomKey();
+
         }
     }
 }

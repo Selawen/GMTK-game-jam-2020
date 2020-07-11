@@ -24,10 +24,11 @@ public class Enemy : MonoBehaviour
 
     }
 
-     public State currenState;
+    public State currenState;
 
-    private void Start()
+    private void Awake()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         animator = gameObject.GetComponent<Animator>();
         currenState = State.Roaming;
 
@@ -40,15 +41,22 @@ public class Enemy : MonoBehaviour
         {
             Debug.Log("AHA!!!");
             currenState = State.ChasingTarget;
+            SwitchStates();
         }
         else
         {
             Debug.Log("Nvm");
             currenState = State.Roaming;
+            SwitchStates();
         }
         Debug.Log("AHA!!!");
 
 
+        
+    }
+
+    void SwitchStates()
+    {
         switch (currenState)
         {
             case State.Idle:

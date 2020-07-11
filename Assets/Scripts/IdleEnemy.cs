@@ -18,11 +18,6 @@ public class IdleEnemy : StateMachineBehaviour
     //OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            animator.SetBool("isChasing", true);
-        }
-
         meshAgent.SetDestination(animator.transform.position);
     }
 
