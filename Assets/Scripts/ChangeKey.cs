@@ -13,7 +13,7 @@ public class ChangeKey : MonoBehaviour
 
     KeyCode[] usableKeycodes;
     public Dictionary<int, string> keycodeNames { get; private set; } = new Dictionary<int, string>();
-private int randomKey;
+    private int randomKey;
 
     private GUI UIManager;
 
@@ -37,6 +37,7 @@ private int randomKey;
         pause = KeyCode.Escape;
 
         UIManager = GameObject.Find("EventSystem").GetComponent<GUI>();
+        UIManager.UpdateKeyText();
     }
 
     /// <summary>
