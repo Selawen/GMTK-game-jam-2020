@@ -279,24 +279,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1047634778028654955}
   m_PrefabAsset: {fileID: 0}
---- !u!143 &2096531122
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2096531115}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 1
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1047634778028654955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -304,21 +286,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1047634778667303306, guid: 63cda867b0a79044a8b3d657c550f706,
-        type: 3}
-      propertyPath: playerSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1047634778667303306, guid: 63cda867b0a79044a8b3d657c550f706,
-        type: 3}
-      propertyPath: jumpHeight
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1047634778667303306, guid: 63cda867b0a79044a8b3d657c550f706,
-        type: 3}
-      propertyPath: gravityValue
-      value: -18.1
-      objectReference: {fileID: 0}
     - target: {fileID: 1047634778667303307, guid: 63cda867b0a79044a8b3d657c550f706,
         type: 3}
       propertyPath: m_LocalPosition.x
