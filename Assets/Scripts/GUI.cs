@@ -12,7 +12,6 @@ public class GUI : MonoBehaviour
     void Start()
     {
         changedKeys = GameObject.Find("InputManager").GetComponent<ChangeKey>();
-        UpdateKeyText();
     }
 
     // Update is called once per frame
