@@ -6,13 +6,11 @@ using TMPro;
 public class GUI : MonoBehaviour
 {
     public TextMeshProUGUI keysText;
-    private ChangeKey changedKeys;
 
     // Start is called before the first frame update
     void Start()
     {
-        changedKeys = GameObject.Find("InputManager").GetComponent<ChangeKey>();
-        UpdateKeyText();
+        
     }
 
     // Update is called once per frame
@@ -23,11 +21,6 @@ public class GUI : MonoBehaviour
 
     public void UpdateKeyText()
     {
-        keysText.text = "Up: " + changedKeys.keycodeNames[(int)changedKeys.up] + "<br>" +
-                        "Down: " + changedKeys.keycodeNames[(int)changedKeys.down] + "<br>" + 
-                        "Left: " + changedKeys.keycodeNames[(int)changedKeys.left] + "<br>" + 
-                        "Right: " + changedKeys.keycodeNames[(int)changedKeys.right] + "<br>" + 
-                        "Jump: " + changedKeys.keycodeNames[(int)changedKeys.jump] + "<br>" + 
-                        "Pause: " + changedKeys.keycodeNames[(int)changedKeys.pause] + "<br>";
+        keysText.text = "not implemeted yet";
     }
 }

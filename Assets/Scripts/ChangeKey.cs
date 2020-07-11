@@ -12,8 +12,7 @@ public class ChangeKey : MonoBehaviour
     public KeyCode pause { get; private set; }
 
     KeyCode[] usableKeycodes;
-    public Dictionary<int, string> keycodeNames { get; private set; } = new Dictionary<int, string>();
-private int randomKey;
+    private int randomKey;
 
     private GUI UIManager;
 
@@ -22,61 +21,18 @@ private int randomKey;
     {
 
         usableKeycodes = new KeyCode[] { KeyCode.Q, KeyCode.W, KeyCode.E, KeyCode.R, KeyCode.T, KeyCode.Y, KeyCode.U, KeyCode.I, KeyCode.O, KeyCode.P, KeyCode.A, KeyCode.S, KeyCode.D, KeyCode.F, KeyCode.G, KeyCode.H, KeyCode.J, KeyCode.K, KeyCode.L, KeyCode.Z, KeyCode.X, KeyCode.C, KeyCode.V, KeyCode.B, KeyCode.N, KeyCode.M,
-                                        KeyCode.UpArrow, KeyCode.DownArrow, KeyCode.LeftArrow, KeyCode.RightArrow, KeyCode.Space,
+                                        KeyCode.UpArrow, KeyCode.DownArrow, KeyCode.LeftArrow, KeyCode.RightArrow,
                                         KeyCode.Alpha0, KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3, KeyCode.Alpha4, KeyCode.Alpha5, KeyCode.Alpha6, KeyCode.Alpha7, KeyCode.Alpha8, KeyCode.Alpha9,
-                                        KeyCode.Tab, KeyCode.Return, KeyCode.Backspace, KeyCode.CapsLock, KeyCode.Escape, KeyCode.Quote, KeyCode.Comma, KeyCode.Minus, KeyCode.Period, KeyCode.Slash, KeyCode.Backslash, KeyCode.Semicolon, KeyCode.Equals, KeyCode.BackQuote,
-                                        KeyCode.LeftAlt, KeyCode.LeftControl, KeyCode.LeftShift, KeyCode.LeftBracket,KeyCode.RightBracket, KeyCode.RightAlt, KeyCode.RightControl, KeyCode.RightShift};
-
-        KeyToString();
+                                        KeyCode.Tab, KeyCode.Return, KeyCode.Backspace, KeyCode.CapsLock, KeyCode.Escape, KeyCode.Quote, KeyCode.Comma, KeyCode.Minus, KeyCode.Period, KeyCode.Slash, KeyCode.Semicolon, KeyCode.Equals, KeyCode.Tilde,
+                                        KeyCode.LeftAlt, KeyCode.LeftControl, KeyCode.LeftShift, KeyCode.RightBracket, KeyCode.RightAlt, KeyCode.RightControl, KeyCode.RightShift, KeyCode.RightBracket};
 
         up = KeyCode.W;
         down = KeyCode.S;
         right = KeyCode.D;
         left = KeyCode.A;
         jump = KeyCode.Space;
-        pause = KeyCode.Escape;
 
         UIManager = GameObject.Find("EventSystem").GetComponent<GUI>();
-    }
-
-    /// <summary>
-    /// make ditionary to get "nice" names for keycodes 
-    /// </summary>
-    private void KeyToString()
-    {
-        foreach (KeyCode k in usableKeycodes)
-        {
-            keycodeNames.Add((int)k, k.ToString());
-        }
-        // replace Alpha0, Alpha1, .. and Keypad0... with "0", "1", ...
-        for (int i = 0; i < 10; i++)
-        {
-                keycodeNames[((int)KeyCode.Alpha0 + i)] = i.ToString();
-        }
-            keycodeNames[(int)KeyCode.Comma] = ",";
-            keycodeNames[(int)KeyCode.Escape] = "Esc";
-            keycodeNames[(int)KeyCode.UpArrow] = "Up";
-            keycodeNames[(int)KeyCode.DownArrow] = "Down";
-            keycodeNames[(int)KeyCode.LeftArrow] = "Left";
-            keycodeNames[(int)KeyCode.RightArrow] = "Right";
-            keycodeNames[(int)KeyCode.CapsLock] = "Caps";
-            keycodeNames[(int)KeyCode.Minus] = "-";
-            keycodeNames[(int)KeyCode.Period] = ".";
-            keycodeNames[(int)KeyCode.Quote] = "'";
-            keycodeNames[(int)KeyCode.BackQuote] = "~";
-            keycodeNames[(int)KeyCode.Slash] = "/";
-            keycodeNames[(int)KeyCode.Backslash] = "\\";
-            keycodeNames[(int)KeyCode.Semicolon] = ";";
-            keycodeNames[(int)KeyCode.Equals] = "=";
-            keycodeNames[(int)KeyCode.Backspace] = "Bksp";
-            keycodeNames[(int)KeyCode.LeftAlt] = "Left Alt";
-            keycodeNames[(int)KeyCode.LeftControl] = "Left Ctrl";
-            keycodeNames[(int)KeyCode.LeftShift] = "Left Shift";
-            keycodeNames[(int)KeyCode.LeftBracket] = "[";
-            keycodeNames[(int)KeyCode.RightBracket] = "]";
-            keycodeNames[(int)KeyCode.RightAlt] = "Right Alt";
-            keycodeNames[(int)KeyCode.RightControl] = "Right Ctrl";
-            keycodeNames[(int)KeyCode.RightShift] = "Right Shift";
     }
 
 
@@ -136,6 +92,6 @@ private int randomKey;
         UIManager.UpdateKeyText();
 
 
-        //Debug.Log(usableKeycodes[randomKey]);
+        Debug.Log(usableKeycodes[randomKey]);
     }
 }
