@@ -42,6 +42,7 @@ public class MenuButtons : MonoBehaviour
     public void NewGame()
     {
         SceneManager.LoadScene(1);
+        PlayerPrefs.SetInt("tries", 0);
     }
 
     public void ExitGame()
