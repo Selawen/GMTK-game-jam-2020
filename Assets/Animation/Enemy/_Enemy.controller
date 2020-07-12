@@ -55,6 +55,8 @@ MonoBehaviour:
   player: {fileID: 0}
   thisEnemy: {fileID: 0}
   eventSystem: {fileID: 0}
+  soundManager: {fileID: 2851534900578405723, guid: 73f6d6ec29ff49e42924bd938e57a271,
+    type: 3}
 --- !u!114 &114479282627163800
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -94,6 +96,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPos: {fileID: 0}
+  soundManager: {fileID: 2851534900578405723, guid: 73f6d6ec29ff49e42924bd938e57a271,
+    type: 3}
 --- !u!1101 &1101207576051627190
 AnimatorStateTransition:
   m_ObjectHideFlags: 1

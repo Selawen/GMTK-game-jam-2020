@@ -10,7 +10,9 @@ public class EnemyShooting : StateMachineBehaviour
     private Vector3 shootDirection;
     public GameObject eventSystem;
     private int shots;
-    
+
+    public AudioSource audioSource;
+    public AudioClip audioClip;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -18,6 +20,7 @@ public class EnemyShooting : StateMachineBehaviour
         eventSystem = GameObject.Find("EventSystem");
         player = GameObject.Find("Player");
         shots = 0;
+        audioSource = animator.GetComponent<AudioSource>();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -67,7 +70,8 @@ public class EnemyShooting : StateMachineBehaviour
     {
         RaycastHit thisShot;
         Ray shootRay = new Ray(thisEnemy.transform.position, shootDirection);
-        
+        audioSource.PlayOneShot(audioClip);
+
         if (player.GetComponent<Collider>().Raycast(shootRay, out thisShot, 10))
         {
             if (thisEnemy.GetComponent<Enemy>().changedControl <= 4)

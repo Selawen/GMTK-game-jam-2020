@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
 
     public int changedControl;
 
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
@@ -42,15 +43,21 @@ public class Enemy : MonoBehaviour
         {
             Debug.Log("AHA!!!");
             currentState = State.ChasingTarget;
+            SwitchState();
         }
         else if(currentState != State.Shooting)
         {
             Debug.Log("Nvm");
             currentState = State.Roaming;
+            SwitchState();
+
         }
-        Debug.Log("AHA!!!");
+
+    }
 
 
+    public void SwitchState()
+    {
         switch (currentState)
         {
             case State.Idle:
@@ -80,7 +87,6 @@ public class Enemy : MonoBehaviour
             default:
                 break;
         }
-
     }
 
     public void GotToShooting()
