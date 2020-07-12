@@ -15,10 +15,11 @@ public class ChangeKey : MonoBehaviour
     public Dictionary<int, string> keycodeNames { get; private set; } = new Dictionary<int, string>();
     private int randomKey;
 
-    private GUI UIManager;
+    public GUI UIManager;
+    public bool alreadyChanged = false;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
 
         usableKeycodes = new KeyCode[] { KeyCode.Q, KeyCode.W, KeyCode.E, KeyCode.R, KeyCode.T, KeyCode.Y, KeyCode.U, KeyCode.I, KeyCode.O, KeyCode.P, KeyCode.A, KeyCode.S, KeyCode.D, KeyCode.F, KeyCode.G, KeyCode.H, KeyCode.J, KeyCode.K, KeyCode.L, KeyCode.Z, KeyCode.X, KeyCode.C, KeyCode.V, KeyCode.B, KeyCode.N, KeyCode.M,
@@ -83,7 +84,15 @@ public class ChangeKey : MonoBehaviour
 
     public int RandomKey()
     {
+        if (alreadyChanged)
+        {
+            return 6;
+        }
+
+        alreadyChanged = true;
+
         int keyToChange = (int)Random.Range(0, 5.9f);
+
         switch (keyToChange)
         {
             case (0):
@@ -136,7 +145,8 @@ public class ChangeKey : MonoBehaviour
         }
 
         UIManager.UpdateKeyText();
+        Debug.Log(usableKeycodes[randomKey]);
         return keyToChange;
-        //Debug.Log(usableKeycodes[randomKey]);
+        
     }
 }

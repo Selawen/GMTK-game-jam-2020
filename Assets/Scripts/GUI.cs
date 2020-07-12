@@ -9,7 +9,7 @@ public class GUI : MonoBehaviour
     private ChangeKey changedKeys;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         changedKeys = GameObject.Find("InputManager").GetComponent<ChangeKey>();
     }
@@ -22,6 +22,8 @@ public class GUI : MonoBehaviour
 
     public void UpdateKeyText()
     {
+        changedKeys = GameObject.Find("InputManager").GetComponent<ChangeKey>();
+
         keysText.text = "Up: " + changedKeys.keycodeNames[(int)changedKeys.up] + "<br>" +
                         "Down: " + changedKeys.keycodeNames[(int)changedKeys.down] + "<br>" + 
                         "Left: " + changedKeys.keycodeNames[(int)changedKeys.left] + "<br>" + 
