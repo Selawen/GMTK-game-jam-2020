@@ -9,6 +9,7 @@ public class EnemyShooting : StateMachineBehaviour
     public GameObject thisEnemy;
     private Vector3 shootDirection;
     public GameObject eventSystem;
+    private int shots;
     
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -16,6 +17,7 @@ public class EnemyShooting : StateMachineBehaviour
     {
         eventSystem = GameObject.Find("EventSystem");
         player = GameObject.Find("Player");
+        shots = 0;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -39,6 +41,7 @@ public class EnemyShooting : StateMachineBehaviour
         {
             Shoot();
             timer = 0.5f;
+            shots++;
         }
     }
 

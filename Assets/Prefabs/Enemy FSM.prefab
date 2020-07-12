@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 114590398966831558}
   m_Layer: 0
   m_Name: Enemy FSM
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,4 +149,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1047634778667303351, guid: 63cda867b0a79044a8b3d657c550f706, type: 3}
   radius: 6
-  currenState: 0
+  changedControl: 0
+  currentState: 0
