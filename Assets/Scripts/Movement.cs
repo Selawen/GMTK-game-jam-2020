@@ -18,7 +18,8 @@ public class Movement : MonoBehaviour
     public int horizontal;
     public int vertical;
     public int jump;
-    public int pause;
+
+    private bool movedByShot = false;
 
     private void Start()
     {
@@ -52,6 +53,17 @@ public class Movement : MonoBehaviour
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+
+        if (movedByShot == true)
+        {
+            //reset values from shot
+            vertical = 0;
+            horizontal = 0;
+            jump = 0;
+        }else
+        {
+            movedByShot = true;
+        }
     }
 
     /// <summary>
@@ -85,9 +97,7 @@ public class Movement : MonoBehaviour
 
     public void ShotModifier(int shotControl)
     {
-        vertical = 0;
-        horizontal = 0;
-        jump = 0;
+        movedByShot = false;
 
         switch (shotControl)
         {

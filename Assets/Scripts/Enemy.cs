@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
 
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
 
         if (Vector3.Distance(gameObject.transform.position, player.transform.position) <= radius && currentState!= State.Shooting)
@@ -48,7 +48,7 @@ public class Enemy : MonoBehaviour
             Debug.Log("Nvm");
             currentState = State.Roaming;
         }
-        Debug.Log("AHA!!!");
+        //Debug.Log("AHA!!!");
 
 
         switch (currentState)
@@ -86,6 +86,11 @@ public class Enemy : MonoBehaviour
     public void GotToShooting()
     {
         currentState = State.Shooting;
+    }
+
+    public void GotToRoaming()
+    {
+        currentState = State.Roaming;
     }
 
 }

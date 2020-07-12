@@ -14,7 +14,7 @@ public class GameOver : MonoBehaviour
     {
         gameOverPanel = GameObject.Find("pnlGameOver");
         gameOverPanel.SetActive(false);
-        player = GameObject.Find("player");
+        player = GameObject.Find("Player");
     }
 
     // Update is called once per frame

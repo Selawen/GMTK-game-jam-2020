@@ -18,8 +18,17 @@ public class EnemyCollision : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            other.gameObject.GetComponent<Enemy>().changedControl = inputManager.RandomKey();
-            other.gameObject.GetComponent<Enemy>().GotToShooting();
+            int controlChanged = inputManager.RandomKey();
+
+            if (controlChanged == 6)
+            {
+                return;
+            }
+            else
+            {
+                other.gameObject.GetComponent<Enemy>().changedControl = controlChanged;
+                other.gameObject.GetComponent<Enemy>().GotToShooting();
+            }
         }
 
         if (other.CompareTag("Hazard"))

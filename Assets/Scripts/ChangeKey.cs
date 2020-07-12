@@ -15,7 +15,8 @@ public class ChangeKey : MonoBehaviour
     public Dictionary<int, string> keycodeNames { get; private set; } = new Dictionary<int, string>();
     private int randomKey;
 
-    private GUI UIManager;
+    public GUI UIManager;
+    public bool alreadyChanged = false;
 
     // Start is called before the first frame update
     void Start()
@@ -83,7 +84,15 @@ public class ChangeKey : MonoBehaviour
 
     public int RandomKey()
     {
+        if (alreadyChanged)
+        {
+            return 6;
+        }
+
+        alreadyChanged = true;
+
         int keyToChange = (int)Random.Range(0, 5.9f);
+
         switch (keyToChange)
         {
             case (0):
