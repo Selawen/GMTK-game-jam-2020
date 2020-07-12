@@ -5,15 +5,24 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/_preload.unity
-    guid: 781b4563ca2a72843bf825e1b5b0f128
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/BasicMainMenu/Scenes/MainMenu.unity
     guid: b251b156c973518459db8c6f41708069
   - enabled: 1
-    path: Assets/Scenes/TestingInger.unity
-    guid: 6ba506d5f5daf534cbb130383f37a7fe
+    path: Assets/Scenes/IschaLevelTest0.unity
+    guid: e02f3bf08b77c214ab70aeffc9870fb4
+  - enabled: 1
+    path: Assets/Scenes/IschaLevelTest1.unity
+    guid: 3221ae8de5f28444f88aa76347618744
+  - enabled: 1
+    path: Assets/Scenes/IschaLevelTest2.unity
+    guid: 86073cada1780e44495ccfad6032f563
+  - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: 452b8b02baf31424cb246a2c7aa23509
   - enabled: 1
     path: Assets/Scenes/LoadingScene.unity
     guid: 8f6ac9ce9b705c64883430440f2135ba

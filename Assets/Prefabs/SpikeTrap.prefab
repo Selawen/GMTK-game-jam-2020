@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 3040815973492349416}
   m_Layer: 0
   m_Name: SpikeTrap
-  m_TagString: Untagged
+  m_TagString: Hazard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
