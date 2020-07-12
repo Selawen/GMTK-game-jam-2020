@@ -29,14 +29,14 @@ public class Enemy : MonoBehaviour
 
      public State currentState;
 
-    private void Start()
+    private void Awake()
     {
         animator = gameObject.GetComponent<Animator>();
         currentState = State.Roaming;
 
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
 
         if (Vector3.Distance(gameObject.transform.position, player.transform.position) <= radius && currentState!= State.Shooting)
@@ -52,7 +52,6 @@ public class Enemy : MonoBehaviour
             SwitchState();
 
         }
-
     }
 
 
@@ -92,6 +91,12 @@ public class Enemy : MonoBehaviour
     public void GotToShooting()
     {
         currentState = State.Shooting;
+        Debug.Log("shoot!");
+    }
+
+    public void GotToRoaming()
+    {
+        currentState = State.Roaming;
     }
 
 }

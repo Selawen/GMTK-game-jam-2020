@@ -12,7 +12,7 @@ public class MenuManager : MonoBehaviour
     bool pauseMenuActive;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         howToPlayActive = true;
         ToggleHowToPlay();
@@ -33,7 +33,7 @@ public class MenuManager : MonoBehaviour
 
     public void RestartLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("LoadingScene");
     }
 
     public void ToggleHowToPlay()

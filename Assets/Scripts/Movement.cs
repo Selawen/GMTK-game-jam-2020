@@ -18,13 +18,15 @@ public class Movement : MonoBehaviour
     public int horizontal;
     public int vertical;
     public int jump;
-    public int pause;
 
-    private void Start()
+    private bool movedByShot = false;
+
+    private void Awake()
     {
         controller = gameObject.GetComponent<CharacterController>();
         inputManager = GameObject.Find("InputManager").GetComponent<ChangeKey>();
     }
+
 
     void FixedUpdate()
     {
@@ -52,6 +54,17 @@ public class Movement : MonoBehaviour
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+
+        if (movedByShot == true)
+        {
+            //reset values from shot
+            vertical = 0;
+            horizontal = 0;
+            jump = 0;
+        }else
+        {
+            movedByShot = true;
+        }
     }
 
     /// <summary>
@@ -85,26 +98,24 @@ public class Movement : MonoBehaviour
 
     public void ShotModifier(int shotControl)
     {
-        vertical = 0;
-        horizontal = 0;
-        jump = 0;
+        movedByShot = false;
 
         switch (shotControl)
         {
             case 0:
-                vertical += 1;
+                vertical += 6;
                 break;
             case 1:
-                vertical -= 1;
+                vertical -= 6;
                 break;
             case 2:
-                horizontal += 1;
+                horizontal += 6;
                 break;
             case 3:
-                horizontal -= 1;
+                horizontal -= 6;
                 break;
             case 4:
-                jump += 2;
+                jump += 36;
                 break; }
     }
 }
