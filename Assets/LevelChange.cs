@@ -5,18 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class LevelChange : MonoBehaviour
 {
-    public int sceneNumber;
-
-    public void SwitchSceneTo(int _sceneNumber)
-    {
-        SceneManager.LoadScene(_sceneNumber);
-    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            SwitchSceneTo(sceneNumber);
+            Time.timeScale = 1;
+            int savedLevel = PlayerPrefs.GetInt("LevelAchieved");
+            SceneManager.LoadScene(savedLevel +1);
         }
     }
 }
