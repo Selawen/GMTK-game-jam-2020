@@ -12,6 +12,9 @@ public class EnemyShooting : StateMachineBehaviour
     private Vector3 shootDirection;
     public GameObject eventSystem;
 
+    public AudioSource audioSource;
+    public AudioClip audioClip;
+
     private NavMeshAgent meshAgent;
 
     public int shots;
@@ -26,6 +29,7 @@ public class EnemyShooting : StateMachineBehaviour
         eventSystem = GameObject.Find("EventSystem");
         player = GameObject.Find("Player");
         shots = 0;
+        audioSource = animator.GetComponent<AudioSource>();
         timer = 2;
         meshAgent.SetDestination(thisEnemy.transform.position);
     }
@@ -92,7 +96,8 @@ public class EnemyShooting : StateMachineBehaviour
     {
         RaycastHit thisShot;
         Ray shootRay = new Ray(thisEnemy.transform.position, shootDirection);
-        
+        audioSource.PlayOneShot(audioClip);
+
         if (player.GetComponent<Collider>().Raycast(shootRay, out thisShot, 15))
         {
             int controlChanged = thisEnemy.GetComponent<Enemy>().changedControl;

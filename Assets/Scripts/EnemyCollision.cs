@@ -7,6 +7,9 @@ public class EnemyCollision : MonoBehaviour
     private ChangeKey inputManager;
     private GameOver loseControl;
 
+    public AudioSource audioSource;
+    public AudioClip audioClip;
+
     private void Awake()
     {
         inputManager = GameObject.Find("InputManager").GetComponent<ChangeKey>();
@@ -18,6 +21,9 @@ public class EnemyCollision : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
+            other.gameObject.GetComponent<Enemy>().changedControl = inputManager.RandomKey();
+            other.gameObject.GetComponent<Enemy>().GotToShooting();
+            audioSource.PlayOneShot(audioClip);
             int controlChanged = inputManager.RandomKey();
 
             if (controlChanged == 6)
