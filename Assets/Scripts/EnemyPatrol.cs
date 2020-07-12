@@ -43,7 +43,7 @@ public class EnemyPatrol : StateMachineBehaviour
 
         if (timeToSearchNewSpot <= 0)
         {
-            Debug.Log("nani whats over there? " + timeToSearchNewSpot);
+            //Debug.Log("nani whats over there? " + timeToSearchNewSpot);
             timeToSearchNewSpot = Random.Range(13f, 15f);
             roamPosition = GetRoamingPosition();
 
