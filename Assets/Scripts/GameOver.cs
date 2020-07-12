@@ -13,7 +13,7 @@ public class GameOver : MonoBehaviour
     void Awake()
     {
         gameOverPanel = GameObject.Find("pnlGameOver");
-        triesText = GameObject.Find("pnlGameOver").GetComponentInChildren<TextMeshProUGUI>();
+        //triesText = GameObject.Find("pnlGameOver").GetComponentInChildren<TextMeshProUGUI>();
 
         gameOverPanel.SetActive(false);
         player = GameObject.Find("Player");

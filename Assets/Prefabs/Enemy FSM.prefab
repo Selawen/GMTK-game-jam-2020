@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 95204489966464322}
   - component: {fileID: 114590398966831558}
   - component: {fileID: 82591767400845266}
+  - component: {fileID: 2119819680}
   m_Layer: 0
   m_Name: Enemy FSM
   m_TagString: Enemy
@@ -149,10 +150,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1047634778667303351, guid: 63cda867b0a79044a8b3d657c550f706, type: 3}
-  radius: 6
+  radius: 10
   changedControl: 0
-  soundManager: {fileID: 2851534900578405723, guid: 73f6d6ec29ff49e42924bd938e57a271,
-    type: 3}
   currentState: 0
 --- !u!82 &82591767400845266
 AudioSource:
@@ -250,3 +249,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &2119819680
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 664851171891663527}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3333341, y: 3.909497, z: 1.3333341}
+  m_Center: {x: 0, y: 0, z: 0}

@@ -29,9 +29,10 @@ public class EnemyShooting : StateMachineBehaviour
         eventSystem = GameObject.Find("EventSystem");
         player = GameObject.Find("Player");
         shots = 0;
-        audioSource = animator.GetComponent<AudioSource>();
         timer = 2;
         meshAgent.SetDestination(thisEnemy.transform.position);
+        audioSource = animator.GetComponent<AudioSource>();
+
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
