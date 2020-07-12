@@ -10,24 +10,31 @@ public class GameOver : MonoBehaviour
     public TextMeshProUGUI triesText;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         gameOverPanel = GameObject.Find("pnlGameOver");
+        triesText = GameObject.Find("pnlGameOver").GetComponentInChildren<TextMeshProUGUI>();
+
         gameOverPanel.SetActive(false);
         player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (player.transform.position.y <= -1)
+        if (player != null)
         {
-            GameIsOver();
+            if (player.transform.position.y <= -1)
+            {
+                GameIsOver();
+            }
         }
     }
 
     public void GameIsOver()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         Time.timeScale = 0;
         gameOverPanel.SetActive(true);
 

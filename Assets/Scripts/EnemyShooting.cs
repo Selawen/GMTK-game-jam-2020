@@ -35,9 +35,9 @@ public class EnemyShooting : StateMachineBehaviour
     {
 
         thisEnemy = animator.gameObject;
-        thisEnemy.transform.LookAt(player.transform, Vector3.up);
+        thisEnemy.transform.LookAt((player.transform), Vector3.up);
 
-        if (Vector3.Distance(thisEnemy.transform.position, player.transform.position) >= 2.0f)
+        if (Vector3.Distance(thisEnemy.transform.position, player.transform.position) >= 4.0f)
         {
             GameObject.Find("InputManager").GetComponent<ChangeKey>().alreadyChanged = false;
             meshAgent.SetDestination(thisEnemy.transform.position);
@@ -63,7 +63,7 @@ public class EnemyShooting : StateMachineBehaviour
                 shots++;
             }
         }
-        else if(Vector3.Distance(thisEnemy.transform.position, player.transform.position) < 2.0f)
+        else if(Vector3.Distance(thisEnemy.transform.position, player.transform.position) < 4.0f)
         {
             GameObject.Find("InputManager").GetComponent<ChangeKey>().alreadyChanged = false;
             meshAgent.SetDestination(thisEnemy.transform.forward*-1);
@@ -93,7 +93,7 @@ public class EnemyShooting : StateMachineBehaviour
         RaycastHit thisShot;
         Ray shootRay = new Ray(thisEnemy.transform.position, shootDirection);
         
-        if (player.GetComponent<Collider>().Raycast(shootRay, out thisShot, 10))
+        if (player.GetComponent<Collider>().Raycast(shootRay, out thisShot, 15))
         {
             int controlChanged = thisEnemy.GetComponent<Enemy>().changedControl;
             Debug.Log(controlChanged);
