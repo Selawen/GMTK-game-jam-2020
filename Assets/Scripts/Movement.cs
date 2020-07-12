@@ -21,11 +21,12 @@ public class Movement : MonoBehaviour
 
     private bool movedByShot = false;
 
-    private void Start()
+    private void Awake()
     {
         controller = gameObject.GetComponent<CharacterController>();
         inputManager = GameObject.Find("InputManager").GetComponent<ChangeKey>();
     }
+
 
     void FixedUpdate()
     {
@@ -102,19 +103,19 @@ public class Movement : MonoBehaviour
         switch (shotControl)
         {
             case 0:
-                vertical += 1;
+                vertical += 6;
                 break;
             case 1:
-                vertical -= 1;
+                vertical -= 6;
                 break;
             case 2:
-                horizontal += 1;
+                horizontal += 6;
                 break;
             case 3:
-                horizontal -= 1;
+                horizontal -= 6;
                 break;
             case 4:
-                jump += 2;
+                jump += 36;
                 break; }
     }
 }

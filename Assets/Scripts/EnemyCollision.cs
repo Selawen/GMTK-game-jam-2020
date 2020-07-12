@@ -7,7 +7,7 @@ public class EnemyCollision : MonoBehaviour
     private ChangeKey inputManager;
     private GameOver loseControl;
 
-    private void Start()
+    private void Awake()
     {
         inputManager = GameObject.Find("InputManager").GetComponent<ChangeKey>();
         loseControl = GameObject.Find("EventSystem").GetComponent<GameOver>();

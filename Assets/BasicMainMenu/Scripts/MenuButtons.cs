@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 
 public class MenuButtons : MonoBehaviour
@@ -12,7 +13,7 @@ public class MenuButtons : MonoBehaviour
     public Button continueButton;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         creditsPanel = GameObject.Find("pnlCredits");
         creditsPanel.SetActive(false);
@@ -20,10 +21,12 @@ public class MenuButtons : MonoBehaviour
             if (PlayerPrefs.GetInt("LevelAchieved") >= 1)
             {
             continueButton.interactable = true;
+
             }
             else
             {
             continueButton.interactable = false;
+            continueButton.GetComponentInChildren<TextMeshProUGUI>().color = Color.black;
             }
         }
 
@@ -35,12 +38,14 @@ public class MenuButtons : MonoBehaviour
 
     public void LoadScene()
     {
+        Time.timeScale = 1;
         int savedLevel = PlayerPrefs.GetInt("LevelAchieved");
         SceneManager.LoadScene(savedLevel);
     }
 
     public void NewGame()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(1);
         PlayerPrefs.SetInt("tries", 0);
     }

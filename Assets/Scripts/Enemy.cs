@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour
 
      public State currentState;
 
-    private void Start()
+    private void Awake()
     {
         animator = gameObject.GetComponent<Animator>();
         currentState = State.Roaming;
@@ -86,6 +86,7 @@ public class Enemy : MonoBehaviour
     public void GotToShooting()
     {
         currentState = State.Shooting;
+        Debug.Log("shoot!");
     }
 
     public void GotToRoaming()

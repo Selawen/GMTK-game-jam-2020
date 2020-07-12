@@ -19,7 +19,7 @@ public class ChangeKey : MonoBehaviour
     public bool alreadyChanged = false;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
 
         usableKeycodes = new KeyCode[] { KeyCode.Q, KeyCode.W, KeyCode.E, KeyCode.R, KeyCode.T, KeyCode.Y, KeyCode.U, KeyCode.I, KeyCode.O, KeyCode.P, KeyCode.A, KeyCode.S, KeyCode.D, KeyCode.F, KeyCode.G, KeyCode.H, KeyCode.J, KeyCode.K, KeyCode.L, KeyCode.Z, KeyCode.X, KeyCode.C, KeyCode.V, KeyCode.B, KeyCode.N, KeyCode.M,
@@ -145,7 +145,8 @@ public class ChangeKey : MonoBehaviour
         }
 
         UIManager.UpdateKeyText();
+        Debug.Log(usableKeycodes[randomKey]);
         return keyToChange;
-        //Debug.Log(usableKeycodes[randomKey]);
+        
     }
 }

@@ -10,7 +10,7 @@ public class Pause : MonoBehaviour
     private bool isPaused;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         inputManager = GameObject.Find("InputManager").GetComponent<ChangeKey>();
         menuManager = GameObject.Find("GUI").GetComponent<MenuManager>();
