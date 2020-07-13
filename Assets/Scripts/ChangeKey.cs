@@ -18,6 +18,8 @@ public class ChangeKey : MonoBehaviour
     public GUI UIManager;
     public bool alreadyChanged = false;
 
+    public float waitToInvoke = 3;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -53,32 +55,32 @@ public class ChangeKey : MonoBehaviour
         // replace Alpha0, Alpha1, .. and Keypad0... with "0", "1", ...
         for (int i = 0; i < 10; i++)
         {
-                keycodeNames[((int)KeyCode.Alpha0 + i)] = i.ToString();
+            keycodeNames[((int)KeyCode.Alpha0 + i)] = i.ToString();
         }
-            keycodeNames[(int)KeyCode.Comma] = ",";
-            keycodeNames[(int)KeyCode.Escape] = "Esc";
-            keycodeNames[(int)KeyCode.UpArrow] = "Up";
-            keycodeNames[(int)KeyCode.DownArrow] = "Down";
-            keycodeNames[(int)KeyCode.LeftArrow] = "Left";
-            keycodeNames[(int)KeyCode.RightArrow] = "Right";
-            keycodeNames[(int)KeyCode.CapsLock] = "Caps";
-            keycodeNames[(int)KeyCode.Minus] = "-";
-            keycodeNames[(int)KeyCode.Period] = ".";
-            keycodeNames[(int)KeyCode.Quote] = "'";
-            keycodeNames[(int)KeyCode.BackQuote] = "~";
-            keycodeNames[(int)KeyCode.Slash] = "/";
-            keycodeNames[(int)KeyCode.Backslash] = "\\";
-            keycodeNames[(int)KeyCode.Semicolon] = ";";
-            keycodeNames[(int)KeyCode.Equals] = "=";
-            keycodeNames[(int)KeyCode.Backspace] = "Bksp";
-            keycodeNames[(int)KeyCode.LeftAlt] = "Left Alt";
-            keycodeNames[(int)KeyCode.LeftControl] = "Left Ctrl";
-            keycodeNames[(int)KeyCode.LeftShift] = "Left Shift";
-            keycodeNames[(int)KeyCode.LeftBracket] = "[";
-            keycodeNames[(int)KeyCode.RightBracket] = "]";
-            keycodeNames[(int)KeyCode.RightAlt] = "Right Alt";
-            keycodeNames[(int)KeyCode.RightControl] = "Right Ctrl";
-            keycodeNames[(int)KeyCode.RightShift] = "Right Shift";
+        keycodeNames[(int)KeyCode.Comma] = ",";
+        keycodeNames[(int)KeyCode.Escape] = "Esc";
+        keycodeNames[(int)KeyCode.UpArrow] = "Up";
+        keycodeNames[(int)KeyCode.DownArrow] = "Down";
+        keycodeNames[(int)KeyCode.LeftArrow] = "Left";
+        keycodeNames[(int)KeyCode.RightArrow] = "Right";
+        keycodeNames[(int)KeyCode.CapsLock] = "Caps";
+        keycodeNames[(int)KeyCode.Minus] = "-";
+        keycodeNames[(int)KeyCode.Period] = ".";
+        keycodeNames[(int)KeyCode.Quote] = "'";
+        keycodeNames[(int)KeyCode.BackQuote] = "~";
+        keycodeNames[(int)KeyCode.Slash] = "/";
+        keycodeNames[(int)KeyCode.Backslash] = "\\";
+        keycodeNames[(int)KeyCode.Semicolon] = ";";
+        keycodeNames[(int)KeyCode.Equals] = "=";
+        keycodeNames[(int)KeyCode.Backspace] = "Bksp";
+        keycodeNames[(int)KeyCode.LeftAlt] = "Left Alt";
+        keycodeNames[(int)KeyCode.LeftControl] = "Left Ctrl";
+        keycodeNames[(int)KeyCode.LeftShift] = "Left Shift";
+        keycodeNames[(int)KeyCode.LeftBracket] = "[";
+        keycodeNames[(int)KeyCode.RightBracket] = "]";
+        keycodeNames[(int)KeyCode.RightAlt] = "Right Alt";
+        keycodeNames[(int)KeyCode.RightControl] = "Right Ctrl";
+        keycodeNames[(int)KeyCode.RightShift] = "Right Shift";
     }
 
 
@@ -90,19 +92,20 @@ public class ChangeKey : MonoBehaviour
         }
 
         alreadyChanged = true;
-
+        Invoke("EnemyReset", waitToInvoke);
         int keyToChange = (int)Random.Range(0, 5.9f);
 
         switch (keyToChange)
         {
             case (0):
-                do {
+                do
+                {
                     randomKey = Random.Range(0, usableKeycodes.Length);
                 }
                 while (usableKeycodes[randomKey] == up);
                 up = usableKeycodes[randomKey];
                 break;
-                case (1):
+            case (1):
                 do
                 {
                     randomKey = Random.Range(0, usableKeycodes.Length);
@@ -147,6 +150,11 @@ public class ChangeKey : MonoBehaviour
         UIManager.UpdateKeyText();
         Debug.Log(usableKeycodes[randomKey]);
         return keyToChange;
-        
+
+    }
+
+    void EnemyReset()
+    {
+        alreadyChanged = false;
     }
 }

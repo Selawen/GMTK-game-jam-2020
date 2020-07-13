@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/IschaLevelTest2.unity
     guid: 86073cada1780e44495ccfad6032f563
   - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: 452b8b02baf31424cb246a2c7aa23509
+  - enabled: 1
     path: Assets/Scenes/LoadingScene.unity
     guid: 8f6ac9ce9b705c64883430440f2135ba
   m_configObjects: {}
